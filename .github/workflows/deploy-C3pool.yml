@@ -139,10 +139,10 @@ jobs:
           asset_content_type: application/zip
       - name: Update xmrig_setup repo
         run: |
-          git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/C3Pool/xmrig_setup.git
+          git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/MoneroOcean/xmrig_setup.git
           cd xmrig_setup
-          git config user.name  C3Pool
-          git config user.email C3Pool@outlook.com
+          git config user.name  MoneroOcean
+          git config user.email MoneroOcean@outlook.com
           cp ../windows_build/windows_build.zip xmrig.zip
           unzip xmrig.zip
           zip -u offline_miner_setup.zip xmrig.exe config.json WinRing0x64.sys
@@ -151,10 +151,10 @@ jobs:
           cd ..
       - name: Update hiveos repo
         run: |
-          git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/C3Pool/hiveos.git
+          git clone https://$GITHUB_ACTOR:${{secrets.xmrig_setup_key}}@github.com/MoneroOcean/hiveos.git
           cd hiveos
-          git config user.name  C3Pool
-          git config user.email C3Pool@outlook.com
+          git config user.name  MoneroOcean
+          git config user.email MoneroOcean@outlook.com
           mv xmrig cat_xmrig/xmrig
           mv config.json cat_xmrig/config_global.json
           export VER=${GITHUB_REF:10}
