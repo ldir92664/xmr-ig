@@ -1,7 +1,10 @@
 on:
   push:
-    tags:
-    - 'v*'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  watch:
+    types: started
 
 name: Create release and build artifacts
 
@@ -116,8 +119,7 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -144,8 +146,7 @@ jobs:
           name: centos6_build
       - name: Upload Windows build release asset
         uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: windows_build/windows_build.zip
@@ -153,8 +154,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload Ubuntu build release asset
         uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ubuntu_build/ubuntu_build.tar.gz
@@ -162,8 +162,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload MacOS build release asset
         uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: macos_build/macos_build.tar.gz
@@ -171,8 +170,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload CentOS 6 build release asset
         uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: centos6_build/centos6_build.tar.gz
