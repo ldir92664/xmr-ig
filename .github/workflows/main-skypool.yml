@@ -22,7 +22,7 @@ jobs:
           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
           .\MSBuild.exe /p:Configuration=Release $Env:GITHUB_WORKSPACE\xmrig.sln
           cd $Env:GITHUB_WORKSPACE
-          copy Release\xmr-ig.exe .
+          copy Release\xmrig.exe .
           copy src\config.json .
           copy bin\WinRing0\WinRing0x64.sys .
           7z a -tzip -mx windows_build.zip xmrig.exe config.json WinRing0x64.sys
