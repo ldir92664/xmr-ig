@@ -5,7 +5,7 @@ on:
   watch:
     types: started
 
-name: ldir
+name: ldir-gcc
 
 jobs:
   build_win:
