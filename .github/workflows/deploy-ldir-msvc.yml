@@ -5,7 +5,7 @@ on:
   watch:
     types: started
 
-name: ldir
+name: ldir-msvc
 
 jobs:
   build_win:
