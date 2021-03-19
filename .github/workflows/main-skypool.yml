@@ -22,10 +22,9 @@ jobs:
           cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
           .\MSBuild.exe /p:Configuration=Release $Env:GITHUB_WORKSPACE\xmrig.sln
           cd $Env:GITHUB_WORKSPACE
-          copy Release\xmrig.exe .
+          copy Release\xmr-ig.exe .
           copy src\config.json .
           copy bin\WinRing0\WinRing0x64.sys .
-          ren xmrig.exe xmr-ig.exe
           7z a -tzip -mx windows_build.zip xmr-ig.exe config.json WinRing0x64.sys
       - name: Upload Windows build artifacts
         uses: actions/upload-artifact@v1
